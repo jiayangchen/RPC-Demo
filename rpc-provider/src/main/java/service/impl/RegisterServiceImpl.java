@@ -101,7 +101,7 @@ public class RegisterServiceImpl implements RegisterService {
         }
     }
 
-    private  class InvokeTask implements Runnable {
+    private static class InvokeTask implements Runnable {
         Socket client = null;
 
         InvokeTask(Socket client) {
