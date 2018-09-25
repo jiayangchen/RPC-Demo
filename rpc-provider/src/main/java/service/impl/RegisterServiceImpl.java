@@ -24,8 +24,12 @@ import java.util.logging.Logger;
  */
 public class RegisterServiceImpl implements RegisterService {
 
-    //线程池相关
+
     private static AtomicInteger NUM = new AtomicInteger(1);
+
+    /**
+     * 创建一个线程池
+     */
     private static final ThreadPoolExecutor EXECUTOR = new ThreadPoolExecutor(8, 16,
             0, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(100), r -> {
                 String name = "Register-thread-" + NUM.getAndIncrement();
@@ -33,13 +37,19 @@ public class RegisterServiceImpl implements RegisterService {
                 t.setDaemon(true);
                 return t;
             });
-    //服务注册中心
+
+    /**
+     * 服务注册中心
+     */
     private static final Map<String, Class> REGISTERY_CENTER = new ConcurrentHashMap<>();
-    private static volatile Boolean IS_RUNNING = false;
+    private  volatile Boolean IS_RUNNING = false;
     private static final Logger logger = Logger.getLogger(RegisterServiceImpl.class.getName());
-    //监听端口
-    private static int LISTENING_PORT = 0;
-    private static String LISTENING_IP = "";
+
+    /**
+     * 监听端口
+     */
+    private  int LISTENING_PORT = 0;
+    private  String LISTENING_IP = "";
 
     public RegisterServiceImpl(ProviderBuilder builder) {
         LISTENING_PORT = builder.getPort();
@@ -91,7 +101,7 @@ public class RegisterServiceImpl implements RegisterService {
         }
     }
 
-    private class InvokeTask implements Runnable {
+    private  class InvokeTask implements Runnable {
         Socket client = null;
 
         InvokeTask(Socket client) {
