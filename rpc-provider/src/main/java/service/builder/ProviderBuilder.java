@@ -1,6 +1,6 @@
 package service.builder;
 
-import service.impl.RegisterServiceImpl;
+import service.impl.ProviderServiceImpl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -53,7 +53,7 @@ public class ProviderBuilder {
         return this;
     }
 
-    public RegisterServiceImpl build() {
-        return new RegisterServiceImpl(this);
+    public ProviderServiceImpl build() {
+        return new ProviderServiceImpl(this);
     }
 }

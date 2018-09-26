@@ -1,7 +1,7 @@
-import service.HelloService;
+import api.HelloService;
 import service.builder.ProviderBuilder;
 import service.impl.HelloServiceImpl;
-import service.impl.RegisterServiceImpl;
+import service.impl.ProviderServiceImpl;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ import java.io.IOException;
  */
 public class main {
     public static void main(String[] args) {
-        RegisterServiceImpl registerService = ProviderBuilder.newBuilder()
+        ProviderServiceImpl registerService = ProviderBuilder.newBuilder()
                 .listeningIP("localhost")
                 .listeningPort(8088)
                 .registerMethod(HelloService.class, HelloServiceImpl.class)

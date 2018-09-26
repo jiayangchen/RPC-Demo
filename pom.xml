@@ -11,6 +11,7 @@
     <modules>
         <module>rpc-provider</module>
         <module>rpc-consumer</module>
+        <module>rpc-api</module>
     </modules>
 
 </project>

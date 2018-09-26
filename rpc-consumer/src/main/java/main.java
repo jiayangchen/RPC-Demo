@@ -1,5 +1,5 @@
 import ProxyHandler.RemoteClientProxy;
-import service.HelloService;
+import api.HelloService;
 
 import java.net.InetSocketAddress;
 

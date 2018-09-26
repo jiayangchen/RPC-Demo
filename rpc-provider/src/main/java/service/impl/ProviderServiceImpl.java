@@ -1,6 +1,6 @@
 package service.impl;
 
-import service.RegisterService;
+import service.ProviderService;
 import service.builder.ProviderBuilder;
 
 import java.io.IOException;
@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 /**
  * create by chenjiayang on 2018/9/24
  */
-public class RegisterServiceImpl implements RegisterService {
+public class ProviderServiceImpl implements ProviderService {
 
     //线程池相关
     private static AtomicInteger NUM = new AtomicInteger(1);
@@ -36,12 +36,12 @@ public class RegisterServiceImpl implements RegisterService {
     //服务注册中心
     private static final Map<String, Class> REGISTERY_CENTER = new ConcurrentHashMap<>();
     private static volatile Boolean IS_RUNNING = false;
-    private static final Logger logger = Logger.getLogger(RegisterServiceImpl.class.getName());
+    private static final Logger logger = Logger.getLogger(ProviderServiceImpl.class.getName());
     //监听端口
     private static int LISTENING_PORT = 0;
     private static String LISTENING_IP = "";
 
-    public RegisterServiceImpl(ProviderBuilder builder) {
+    public ProviderServiceImpl(ProviderBuilder builder) {
         LISTENING_PORT = builder.getPort();
         LISTENING_IP = builder.getIp();
         for(Map.Entry<Class, Class> entry : builder.getRegisterMethods().entrySet()) {

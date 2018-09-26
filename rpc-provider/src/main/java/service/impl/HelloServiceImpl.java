@@ -1,6 +1,6 @@
 package service.impl;
 
-import service.HelloService;
+import api.HelloService;
 
 /**
  * create by chenjiayang on 2018/9/24
